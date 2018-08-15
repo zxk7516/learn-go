@@ -20,6 +20,12 @@ func needInt(x int) int {
 func needFloat(x float64) float64 {
 	return x * 0.1
 }
+
+var (
+	a = 1
+	b = 2
+)
+
 func main() {
 	const World = "世界"
 	var i int

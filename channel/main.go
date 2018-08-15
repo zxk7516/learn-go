@@ -14,6 +14,7 @@ func main() {
 		"http://lol.duowan.com/",
 		"http://www.huya.net",
 	}
+	time.Now()
 	c := make(chan string)
 	for _, link := range links {
 		go checkLink(link, c)
