@@ -7,6 +7,8 @@ import (
 	"io/ioutil"
 	"net/http"
 
+	"github.com/zxk7516/examples/crawler/engine"
+	"github.com/zxk7516/examples/crawler/zhenai/parser"
 	"golang.org/x/net/html/charset"
 	"golang.org/x/text/encoding"
 	"golang.org/x/text/transform"
@@ -34,9 +36,13 @@ func getHtmlContents(url string) []byte {
 	return all
 }
 func main() {
-	url := "http://www.zhenai.com/zhenghun"
-	zhenhun := getHtmlContents(url)
-	printCityList(zhenhun)
+	//url := "http://www.zhenai.com/zhenghun"
+	//zhenhun := getHtmlContents(url)
+	//printCityList(zhenhun)
+	engine.Run(engine.Request{
+		Url:       "http://www.zhenai.com/zhenghun",
+		ParseFunc: parser.ParseCityList,
+	})
 
 }
 
@@ -61,8 +67,4 @@ func printCityList(contents []byte) {
 		fmt.Printf("%s -> %s\n", m[2], m[1])
 	}
 	fmt.Printf("Matched found: %d\n", len(matches))
-}
-
-func getGirsList(city, url string) {
-	list_html := getHtmlContents(url)
 }
