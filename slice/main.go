@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func main() {
+func run() {
 	s := []int{2, 3, 5, 7, 11, 13}
 	printSlice(s)
 
@@ -26,7 +26,18 @@ func main() {
 	}
 
 }
+func main() {
+	arr := [...]int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+	s := arr[2:6]
+	printSlice(s)
+	printSlice(arr[:6])
+	printSlice(arr[:])
+	printSlice(arr[:6])
 
+}
+func updateSlice(s []int) {
+	s[0] = 100
+}
 func printSlice(s []int) {
 	fmt.Printf("P: Len = %d cap=%d %v\n", len(s), cap(s), s)
 }

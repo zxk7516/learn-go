@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func main() {
+func fun() {
 	primes := [6]int{2, 3, 5, 7, 11, 13}
 	var s = primes[1:4]
 	fmt.Println(s)
@@ -53,5 +53,22 @@ func main() {
 
 	sss = sss[1:]
 	fmt.Println(sss)
+}
+func printArr(arr [5]int) {
+	for i, v := range arr {
+		fmt.Println(i, v)
+	}
+}
+func main() {
+	var arr1 [5]int
+	arr2 := [3]int{1, 2, 5}
+	arr3 := [...]int{2, 4, 6, 8, 10}
+	fmt.Println(arr1, arr2, arr3)
+	var grid [4][5]int
+	fmt.Println(grid)
 
+	// for i := 0; i < len(arr3); i++ {
+	// fmt.Println(arr3[i])
+	// }
+	printArr(arr3)
 }

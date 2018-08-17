@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func run() {
 	i, j := 42, 2701
 
 	p := &i // point to i
@@ -19,7 +19,27 @@ func main() {
 	fmt.Println(mySlice)
 	updateSlice(mySlice)
 	fmt.Println(mySlice)
+}
 
+func passByVal(a int) {
+	a++
+}
+func passByRef(a *int) {
+	*a++
+}
+func swap(a, b *int) {
+	*b, *a = *a, *b
+}
+func main() {
+	var a int = 3
+	passByVal(a)
+	println(a)
+	passByRef(&a)
+	println(a)
+	b := 9
+	swap(&a, &b)
+
+	// run()
 }
 
 func updateSlice(s []string) {
