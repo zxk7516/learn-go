@@ -10,9 +10,13 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"time"
 )
 
+var RageLimiter = time.Tick(10 * time.Microsecond)
+
 func Fetch(url string) ([]byte, error) {
+	<-RageLimiter
 	resp, err := http.Get(url)
 	if err != nil {
 		return nil, err
