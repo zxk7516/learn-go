@@ -54,8 +54,7 @@ func extractString(contents []byte, re *regexp.Regexp) string {
 	match := re.FindSubmatch(contents)
 	if len(match) >= 2 {
 		return string(match[1])
-	} else {
-		return ""
 	}
+	return ""
 
 }
